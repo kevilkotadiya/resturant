@@ -36,3 +36,20 @@
     transform: rotate(360deg);
   }
 }
+
+.theme{
+  z-index: 9999999;
+  position: relative;
+  display: block;
+}
+
+.dark {
+  background-color: black;
+  color: white;
+}
+
+
+.light{
+  background-color: white;
+  color: black;
+}
