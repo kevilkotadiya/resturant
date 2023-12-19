@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate, useParams } from 'react-router-dom';
 import {BookOrder, Editorder}  from '../Redux/Action/Book.action';
 
-const Booktable = () => {
+const EditBooktable = () => {
     const dispatch = useDispatch();
     const Navigate = useNavigate()
 
@@ -11,17 +11,16 @@ const Booktable = () => {
     const [name, setname] = useState("")
     const [email, setemail] = useState("")
     const [phone, setphone] = useState("")
-    const Data = useSelector((Data) => Data.BookOrder?.orderdata)
+    const Data = useSelector((Data) => Data.BookOrderr?.orderdata)
 
     useEffect(() => {
         const value = Data.find((i) => i.id == id)
         setname(value?.name)
         setemail(value?.email)
         setphone(value?.phone)
-        // console.log("ID",id);
-        // console.log("VALUE",value);
-        // console.log("DATA",Data);
     }, [])
+
+    console.log("DATA",Data);
 
 
     const onsubmitHandaler = () => {
@@ -101,4 +100,4 @@ const Booktable = () => {
     )
 }
 
-export default Booktable
+export default EditBooktable

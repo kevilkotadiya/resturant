@@ -10,32 +10,36 @@ import Contact from './Pages/Contact';
 import Booktable from './Pages/Booktable';
 import EditBooktable from './Pages/EditBooktable';
 import { Context } from './Context/ReactContext';
-import { useState } from 'react'; 
+import { useState } from 'react';
+import Registration from './Pages/Registartion';
+import Pattern from './Pages/Pattern';
 
 function App() {
 
-  const [theme, settheme] = useState('dark')
+  // const [theme, settheme] = useState('dark')
+  // const onclickHandler = () =>{
+  //   settheme(theme === 'light' ? 'dark' : 'light'  )
+  // }
+  // console.log("THEME",theme);
 
-  const onclickHandler = () =>{
-    settheme(theme === 'light' ? 'dark' : 'light'  )
-  }
-
-  console.log("THEME",theme);
+ 
 
 
   return (
     <div className="App">
-      <Context.Provider  value={theme}>
-        <button className='btn theme btn-danger' onClick={onclickHandler}>Change Theme</button>
+      <Context.Provider  >
+        {/* <button className='btn theme btn-danger' onClick={onclickHandler}>Change Theme</button> */}
       <Routes>
-        <Route path='/' element={<Layout><Home/></Layout>}/>
-        <Route path='/about' element={<Layout><About/></Layout>}/>
-        <Route path='/menu' element={<Layout><Menu/></Layout>}/>
-        <Route path='/event' element={<Layout><Event/></Layout>}/>
-        <Route path='/chefs' element={<Layout><Chefs/></Layout>}/>
-        <Route path='/contact' element={<Layout><Contact/></Layout>}/>
-        <Route path='/book' element={<Layout><Booktable/></Layout>}/>
-        <Route path='/editBooktable/:id' element={<Layout><EditBooktable/></Layout>}/>
+        <Route path='/' element={<Layout><Home /></Layout>} />
+        <Route path='/about' element={<Layout><About /></Layout>} />
+        <Route path='/pattern' element={<Pattern />} />
+        <Route path='/menu' element={<Layout><Menu /></Layout>} />
+        <Route path='/event' element={<Layout><Event /></Layout>} />
+        <Route path='/chefs' element={<Layout><Chefs /></Layout>} />
+        <Route path='/contact' element={<Layout><Contact /></Layout>} />
+        <Route path='/book' element={<Layout><Booktable /></Layout>} />
+        <Route path='/editBooktable/:id' element={<Layout><EditBooktable /></Layout>} />
+        <Route path='/registration' element={<Registration/>} />
       </Routes>
       </Context.Provider>
     </div>

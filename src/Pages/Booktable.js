@@ -2,11 +2,14 @@ import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom';
 import {BookOrder}  from '../Redux/Action/Book.action';
+import axios from 'axios'
+import { addDoc, collection } from 'firebase/firestore';
+import { db } from '../Config/Firebase';
+import BookOrderr from '../Redux/Reduce/BookOrder.reduce';
 
 const Booktable = () => {
 
-
-    const dispatch = useDispatch();
+    const dispatch = useDispatch(); 
     const Navigate = useNavigate()
 
     const [name, setname] = useState("")
@@ -16,16 +19,39 @@ const Booktable = () => {
 
     const onsubmitHandaler = () => {
         const odata = {
-            id : new Date().getTime(),
+            id: new Date().getTime(),
             name: name,
             email:email,
             phone: phone,
         }
-        dispatch(BookOrder(odata))
 
-        console.log('data',odata);
+        console.log("ODATA",odata);
 
+        
+        dispatch(BookOrder(odata))  
+        alert("HII")
         Navigate('/menu')
+      
+        
+        // try {
+        //     const Doc = await addDoc(collection(db,"orders"),odata)
+        //     console.log("DATA",Doc);
+        //     alert("DATA SUCESFUll ADDAED")
+
+        // } catch (error) {
+        //     alert(new Error(error).message)
+        // }   
+
+
+        // await axios({
+        //     method :'POST',
+        //     url :'http://localhost:3000/posts',
+        //     odata
+        // })
+
+        // console.log("DATA",odata);
+
+
     }
 
     const onchangeName = (event) => {
@@ -39,7 +65,6 @@ const Booktable = () => {
     const onchangePhone = (event) => {
         setphone(event.target.value)
     }
-
 
     return (
         <div>
@@ -85,7 +110,7 @@ const Booktable = () => {
                             <div className="error-message" />
                             <div className="sent-message">Your booking request was sent. We will call back or send an Email to confirm your reservation. Thank you!</div>
                         </div>
-                        <div className="text-center"><button onClick={onsubmitHandaler}  type="submit">Book a Table</button></div>
+                        <div className="text-center"><button onClick={onsubmitHandaler}  type="button">Book a Table</button></div>
                     </form>
                 </div>
             </section>

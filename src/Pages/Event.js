@@ -1,39 +1,50 @@
-import React ,{useReducer} from 'react'
+import React ,{useReducer, useState} from 'react'
 
 const Event = () => {
 
-    const intialstate = {
-        count : 0
+    // const intialstate = {
+    //     count : 0
+    // }
+
+    // const reducer = (state,action) =>{
+
+    //     if(action.type === 'INCREMENT')
+    //     {
+    //         return{...state,count : state.count + 1}
+    //     }
+
+    //     if(action.type === 'DECREMENT'){
+
+    //         return{...state , count : state.count - 1}
+
+    //     }
+    //     console.log("STATE",state);
+    //     return state
+    // }
+
+    // const [state, dispatch] = useReducer(reducer,intialstate)
+
+    const [Count, setCount] = useState(0)
+    const [Count2, setCount2] = useState(1100)
+
+
+
+
+
+    const multi = () =>{
+        return Count * 2
+        console.log("HII");
     }
 
-    const reducer = (state,action) =>{
 
-        if(action.type === 'INCREMENT')
-        {
-            return{...state,count : state.count + 1}
-        }
 
-        if(action.type === 'DECREMENT'){
-
-            return{...state , count : state.count - 1}
-
-        }
-        console.log("STATE",state);
-        return state
-    }
-
-    const [state, dispatch] = useReducer(reducer,intialstate)
     const onclickInr = () =>{
-        dispatch({type : 'INCREMENT'})
+       setCount( Count + 1)
     }
 
     const onclickDec = () => {
-        dispatch({type : 'DECREMENT'})
+        setCount2(Count2 - 1)
     }
-
-
-    
-
 
     return (
         <div>
@@ -133,8 +144,9 @@ const Event = () => {
                 </section>
                 <section>
                     <div>
+                        {multi()}
                         <button onClick={onclickInr} className='btn btn-danger'>+</button>
-                        {state.count}
+                        {Count}
                         <button onClick={onclickDec} className='btn btn-primary'>-</button>
                     </div>
                 </section>

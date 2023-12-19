@@ -44,7 +44,7 @@ const Header = () => {
                             </ul>
                             <i className="bi bi-list mobile-nav-toggle" />
                         </nav>
-                        <Link   className="book-a-table-btn scrollto d-none d-lg-flex">Book a table</Link>
+                        <Link to="/book"   className="book-a-table-btn scrollto d-none d-lg-flex">Book a table</Link>
                     </div>
                 </header>{/* End Header */}
             </div>

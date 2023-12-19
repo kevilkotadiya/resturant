@@ -1,13 +1,15 @@
+// import { BookOrder } from "../Action/Book.action"
 import { BOOKORDER, DELETEORDER, EDITORDER } from "../Constant"
 
 const intialstate = {
     orderdata: []
 }
 
-const BookOrder = (state = intialstate, action) => {
+const BookOrderr = (state = intialstate, action) => {
 
     if (action.type === BOOKORDER) {
         return { ...state, orderdata: [...state.orderdata, action.payload] }
+       
     }
 
     if (action.type === DELETEORDER) {
@@ -34,4 +36,4 @@ const BookOrder = (state = intialstate, action) => {
 
 
 }
-export default BookOrder
+export default BookOrderr

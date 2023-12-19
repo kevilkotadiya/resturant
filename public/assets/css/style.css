@@ -33,6 +33,13 @@ h6 {
   font-family: "Playfair Display", serif;
 }
 
+a{
+  text-decoration: none;
+}
+
+li{
+  list-style: none;
+}
 /*--------------------------------------------------------------
 # Preloader
 --------------------------------------------------------------*/
@@ -1767,8 +1774,4 @@ section {
   text-align: center;
   font-size: 13px;
   color: #fff;
-}
-
-.Header-margin{
-  margin-bottom: 150px;
 }

@@ -1,8 +1,12 @@
 import {combineReducers} from 'redux'
-import BookOrder from './BookOrder.reduce'
+import BookOrderr from './BookOrder.reduce'
+// import Chefsreducer from './Chefs.reducer'
+// import UsersReducer from './Users.reduce'
 
 const Rootreducer = combineReducers({
-    BookOrder
+    BookOrderr,
+    // Chefsreducer,
+    // UsersReducer
 })
 
 export default Rootreducer
